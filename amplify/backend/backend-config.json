@@ -1,0 +1,50 @@
+{
+  "api": {
+    "apie659201d": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "elephantsfootfee78b17fd"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "function": {
+    "elephantsfootfee78b17fd": {
+      "build": true,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "hosting": {
+    "S3AndCloudFront": {
+      "providerPlugin": "awscloudformation",
+      "service": "S3AndCloudFront"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_elephantsfootfee78b17fd_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "elephantsfootfee78b17fd"
+        }
+      ]
+    },
+    "AMPLIFY_function_elephantsfootfee78b17fd_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "elephantsfootfee78b17fd"
+        }
+      ]
+    }
+  }
+}

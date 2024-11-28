@@ -1,18 +1,39 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Form, Input } from 'antd';
 import './App.css';
+import { get } from 'aws-amplify/api';
+const myAPI = 'apie659201d'
+const path = '/testing'
+
 
 function App() {
   const [form] = Form.useForm(); //Correct form initialization
-  const [name,setName] = useState('')
-  const submit= () => {
+  const [name, setName] = useState('')
+  const submit = () => {
     const name = form.getFieldValue('name')
     setName(name)
   }
-  
+
+  useEffect(()=>{
+    async function getTodo() {
+      try {
+        const restOperation = get({ 
+          apiName: myAPI,
+          path: path
+        });
+        const response = await restOperation.response;
+        console.log('GET call succeeded: ', response);
+      } catch (e) {
+        console.log('GET call failed: ', e);
+      }
+    }
+
+    getTodo();
+  },[])
+
   return (
     <div className='w-full h-[100vh] flex flex-col justify-center items-center'>
-      Hello! {name}
+      Hi! {name}
       <Form
         form={form}
         name="basic"
