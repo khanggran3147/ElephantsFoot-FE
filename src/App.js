@@ -34,7 +34,7 @@ function App() {
   // }, [])
 
   return (
-    <div className='w-full h-[100vh] flex flex-col justify-center items-center px-2 font-sans'>
+    <div className='w-full  flex flex-col justify-center items-center px-2 font-sans mt-20'>
       {/* Hi! {name} */}
       {/* <Form
         form={form}
